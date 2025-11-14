@@ -1,3 +1,4 @@
+import 'package:doit/features/schedule/pages/add_schedule_page.dart';
 import 'package:doit/features/schedule/pages/schedule_detail_page.dart';
 import 'package:flutter/material.dart';
 
@@ -55,7 +56,21 @@ class Home extends StatelessWidget {
                             onTap: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => ScheduleDetailPage()),
+                                PageRouteBuilder(
+                                  pageBuilder: (context, animation, secondaryAnimation) =>
+                                      ScheduleDetailPage(),
+                                  transitionsBuilder:
+                                      (context, animation, secondaryAnimation, child) {
+                                        final tween = Tween(
+                                          begin: Offset(0, 1),
+                                          end: Offset.zero,
+                                        ).chain(CurveTween(curve: Curves.easeOutCubic));
+                                        return SlideTransition(
+                                          position: animation.drive(tween),
+                                          child: child,
+                                        );
+                                      },
+                                ),
                               );
                             },
                           ),
@@ -98,7 +113,24 @@ class Home extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: IconButton(onPressed: () {}, icon: Icon(Icons.add)),
+      floatingActionButton: IconButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            PageRouteBuilder(
+              pageBuilder: (context, animation, secondaryAnimation) => AddSchedulePage(),
+              transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                final tween = Tween(
+                  begin: Offset(0, 1),
+                  end: Offset.zero,
+                ).chain(CurveTween(curve: Curves.easeOutCubic));
+                return SlideTransition(position: animation.drive(tween), child: child);
+              },
+            ),
+          );
+        },
+        icon: Icon(Icons.add),
+      ),
     );
   }
 }
