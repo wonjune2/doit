@@ -17,6 +17,7 @@ class _AddSchedulePageState extends State<AddSchedulePage> {
       setState(() {
         textFieldHeight = currentHeight;
       });
+      print('size: $textFieldHeight');
     }
   }
 
@@ -49,7 +50,8 @@ class _AddSchedulePageState extends State<AddSchedulePage> {
             Expanded(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.all(8.0),
-                keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+                keyboardDismissBehavior:
+                    ScrollViewKeyboardDismissBehavior.onDrag,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
@@ -69,19 +71,28 @@ class _AddSchedulePageState extends State<AddSchedulePage> {
                           ListTile(
                             leading: const Icon(Icons.calendar_month_outlined),
                             title: const Text('날짜'),
-                            trailing: TextButton(onPressed: () {}, child: const Text('오늘')),
+                            trailing: TextButton(
+                              onPressed: () {},
+                              child: const Text('오늘'),
+                            ),
                           ),
                           const Divider(height: 1),
                           ListTile(
                             leading: const Icon(Icons.watch_later_outlined),
                             title: const Text('시간'),
-                            trailing: TextButton(onPressed: () {}, child: const Text('시간 선택')),
+                            trailing: TextButton(
+                              onPressed: () {},
+                              child: const Text('시간 선택'),
+                            ),
                           ),
                           const Divider(height: 1),
                           ListTile(
                             leading: const Icon(Icons.wb_sunny),
                             title: const Text('하루 종일'),
-                            trailing: TextButton(onPressed: () {}, child: const Text('설정')),
+                            trailing: TextButton(
+                              onPressed: () {},
+                              child: const Text('설정'),
+                            ),
                           ),
                         ],
                       ),
@@ -95,13 +106,19 @@ class _AddSchedulePageState extends State<AddSchedulePage> {
                           ListTile(
                             leading: const Icon(Icons.alarm_rounded),
                             title: const Text('알림'),
-                            trailing: TextButton(onPressed: () {}, child: const Text('알림')),
+                            trailing: TextButton(
+                              onPressed: () {},
+                              child: const Text('알림'),
+                            ),
                           ),
                           const Divider(height: 1),
                           ListTile(
                             leading: const Icon(Icons.repeat),
                             title: const Text('반복'),
-                            trailing: TextButton(onPressed: () {}, child: const Text('반복')),
+                            trailing: TextButton(
+                              onPressed: () {},
+                              child: const Text('반복'),
+                            ),
                           ),
                         ],
                       ),
@@ -115,10 +132,9 @@ class _AddSchedulePageState extends State<AddSchedulePage> {
                         hintText: '메모를 입력하세요',
                         border: OutlineInputBorder(),
                       ),
+                      scrollPadding: EdgeInsets.only(bottom: textFieldHeight),
                       maxLines: 6,
                     ),
-
-                    const SizedBox(height: 24), // 아래 여유
                   ],
                 ),
               ),
