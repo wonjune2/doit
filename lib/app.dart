@@ -1,12 +1,11 @@
-import 'package:doit/features/schedule/pages/home.dart';
+import 'package:doit/features/schedule/pages/schedule_home_page.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
-  
   const App({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, title: 'Doit', home: Home());
+    return MaterialApp(debugShowCheckedModeBanner: false, title: 'Doit', home: ScheduleHomePage());
   }
 }

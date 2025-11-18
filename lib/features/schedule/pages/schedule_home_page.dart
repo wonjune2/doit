@@ -1,9 +1,9 @@
-import 'package:doit/features/schedule/pages/add_schedule_page.dart';
+import 'package:doit/features/schedule/pages/schedule_add_page.dart';
 import 'package:doit/features/schedule/pages/schedule_detail_page.dart';
 import 'package:flutter/material.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class ScheduleHomePage extends StatelessWidget {
+  const ScheduleHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -118,7 +118,7 @@ class Home extends StatelessWidget {
           Navigator.push(
             context,
             PageRouteBuilder(
-              pageBuilder: (context, animation, secondaryAnimation) => AddSchedulePage(),
+              pageBuilder: (context, animation, secondaryAnimation) => ScheduleAddPage(),
               transitionsBuilder: (context, animation, secondaryAnimation, child) {
                 final tween = Tween(
                   begin: Offset(0, 1),
