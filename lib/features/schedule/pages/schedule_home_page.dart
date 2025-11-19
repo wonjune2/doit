@@ -1,5 +1,6 @@
 import 'package:doit/features/schedule/pages/schedule_add_page.dart';
 import 'package:doit/features/schedule/pages/schedule_detail_page.dart';
+import 'package:doit/test.dart';
 import 'package:flutter/material.dart';
 
 class ScheduleHomePage extends StatelessWidget {
@@ -10,7 +11,12 @@ class ScheduleHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Doit'),
-        leading: IconButton(onPressed: () {}, icon: Icon(Icons.menu)),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => TestPage()));
+          },
+          icon: Icon(Icons.menu),
+        ),
         actions: [IconButton(onPressed: () {}, icon: Icon(Icons.search))],
       ),
       body: SafeArea(
@@ -23,6 +29,7 @@ class ScheduleHomePage extends StatelessWidget {
                 initialDate: DateTime.now(),
                 firstDate: DateTime.utc(2020, 01, 01),
                 lastDate: DateTime.utc(2200, 12, 31),
+                initialCalendarMode: DatePickerMode.day,
                 onDateChanged: (value) {},
               ),
             ),
