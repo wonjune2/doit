@@ -1,5 +1,6 @@
 import 'package:doit/features/schedule/pages/schedule_add_page.dart';
 import 'package:doit/features/schedule/pages/schedule_detail_page.dart';
+import 'package:doit/features/schedule/widgets/doit_calendar.dart';
 import 'package:doit/test.dart';
 import 'package:flutter/material.dart';
 
@@ -23,16 +24,7 @@ class ScheduleHomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(
-              flex: 1,
-              child: CalendarDatePicker(
-                initialDate: DateTime.now(),
-                firstDate: DateTime.utc(2020, 01, 01),
-                lastDate: DateTime.utc(2200, 12, 31),
-                initialCalendarMode: DatePickerMode.day,
-                onDateChanged: (value) {},
-              ),
-            ),
+            Expanded(flex: 1, child: DoitCalendar()),
             Divider(thickness: 1, color: Colors.grey, height: 20),
             Expanded(
               child: Padding(

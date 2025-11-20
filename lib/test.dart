@@ -8,6 +8,7 @@ class TestPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        title: Text('Doit Calendar'),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -15,16 +16,13 @@ class TestPage extends StatelessWidget {
           icon: Icon(Icons.arrow_back),
         ),
       ),
-      body: Padding(
-        padding: EdgeInsets.all(8),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            DoitCalendar(),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(child: DoitCalendar()),
 
-            // Spacer(flex: 1),
-          ],
-        ),
+          Spacer(flex: 1),
+        ],
       ),
     );
   }
