@@ -3,9 +3,17 @@ import 'package:doit/features/schedule/pages/schedule_detail_page.dart';
 import 'package:doit/features/schedule/widgets/doit_calendar.dart';
 import 'package:doit/test.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
-class ScheduleHomePage extends StatelessWidget {
+class ScheduleHomePage extends StatefulWidget {
   const ScheduleHomePage({super.key});
+
+  @override
+  State<ScheduleHomePage> createState() => _ScheduleHomePageState();
+}
+
+class _ScheduleHomePageState extends State<ScheduleHomePage> {
+  DateTime _selectedDay = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +32,17 @@ class ScheduleHomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(flex: 1, child: DoitCalendar()),
+            Expanded(
+              flex: 1,
+              child: DoitCalendar(
+                selectedDay: _selectedDay,
+                onDaySelected: (selectedDay, focusedDay) {
+                  setState(() {
+                    _selectedDay = selectedDay;
+                  });
+                },
+              ),
+            ),
             Divider(thickness: 1, color: Colors.grey, height: 20),
             Expanded(
               child: Padding(
@@ -33,7 +51,7 @@ class ScheduleHomePage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Octorver 26, Thursday',
+                      DateFormat('M월 d일 EEEE', 'ko_KR').format(_selectedDay),
                       style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
                     ),
                     Expanded(

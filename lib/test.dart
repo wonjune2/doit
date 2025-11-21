@@ -1,4 +1,3 @@
-import 'package:doit/features/schedule/widgets/doit_calendar.dart';
 import 'package:flutter/material.dart';
 
 class TestPage extends StatelessWidget {
@@ -19,9 +18,22 @@ class TestPage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Expanded(child: DoitCalendar()),
-
-          Spacer(flex: 1),
+          Expanded(
+            child: CalendarDatePicker(
+              initialDate: DateTime.now(),
+              firstDate: DateTime(2000, 01, 01),
+              lastDate: DateTime(2100, 12, 31),
+              onDateChanged: (date) {},
+            ),
+          ),
+          Expanded(
+            child: YearPicker(
+              firstDate: DateTime(2000, 01, 01),
+              lastDate: DateTime(2100, 12, 31),
+              selectedDate: DateTime.now(),
+              onChanged: (date) {},
+            ),
+          ),
         ],
       ),
     );
